@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").innerHTML = ""; //clearing the div
+      document.getElementById("myDiv").remove(); //removing the div from DOM
+      //Trying to re-add the div after it's removed causes an error, because the div is no longer part of the DOM
+      document.getElementById("myDiv").innerHTML = "This text should be visible."; 
+    }
+  </script>
+</body>
+</html>
